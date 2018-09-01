@@ -1,0 +1,21 @@
+body {
+    background-image: url(../images/GOTmap-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.container {
+    width: 40%;
+    height: 370px;
+    margin-top: 60px;
+    border-radius: 15px;
+    background-color: lightgray;
+    opacity: .8;
+    padding: 15px;
+}
+
+.choice-button {
+    margin: 2px;
+}
