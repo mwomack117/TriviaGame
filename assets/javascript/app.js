@@ -1,9 +1,13 @@
 
 
 // User answer results
-var rightAnswers = 0;
-var wrongAnswers = 0;
-var unanswered = 0;
+var rightAnswers = null;
+var wrongAnswers = null;
+var unanswered = null;
+
+// Theme audio
+var audioElement = document.createElement("audio");
+      audioElement.setAttribute("src", "/Users/michaelwomack/Documents/code/Homework/TriviaGame/assets/images/The Game of Thrones - Main Title Theme (Intro) 320kbps (128  kbps).mp3");
 
 // Array objects of all questions, choices, and validanswers
 var myQuestions = [
@@ -96,6 +100,7 @@ $("#start").on("click", function start() {
     $("#display-choices").show();
     timer.setTimer(21);
     timer.startTimer();
+    audioElement.play();
 })
 
 
