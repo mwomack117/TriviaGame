@@ -57,7 +57,7 @@ $("#display-choices").hide();
 // declare timer object
 var timer = {
     // property that represents seconds left (default 30)
-    secondsLeft: 31,
+    secondsLeft: 21,
     // method that sets the seconsLeft on the time object(used to set a new time before starting the timer)
     setTimer: function (seconds) {
         // sets seconds left to whatever is passed in
@@ -77,7 +77,10 @@ var timer = {
             } else if (timer.secondsLeft === 0) {
                 questionIndex++;
                 unanswered++;
-                timer.setTimer(31);
+                $("#right-answer").text("Times up! Correct answer was: " + myQuestions[questionIndex - 1].validAnswer + ".");
+                $("#unanswered").html("Unanswered: " + unanswered);
+                clearInterval(timer.timerInterval)
+                timer.setTimer(21);
                 timer.startTimer();
                 displayNextQuestion();
             } else {
@@ -88,12 +91,13 @@ var timer = {
 }
 
 // start game with click event. Starts the timer
-$("#start").on("click", function () {
+$("#start").on("click", function start() {
     $("#display-questions").show();
     $("#display-choices").show();
-    timer.setTimer(30);
+    timer.setTimer(21);
     timer.startTimer();
 })
+
 
 var questionIndex = 0;
 function displayNextQuestion() {
@@ -101,9 +105,9 @@ function displayNextQuestion() {
     $("#display-choices").empty();
     var question = myQuestions[questionIndex].question;
     var questionSet = myQuestions[questionIndex];
-    for (let i = 0; i < myQuestions[questionIndex].choices.length; i++) {
+    for (let i = 0; i < questionSet.choices.length; i++) {
         let newButton = $("<button class='btn btn-primary'>")
-        let eachOption = myQuestions[questionIndex].choices[i];
+        let eachOption = questionSet.choices[i];
         newButton.text(eachOption);
         newButton.attr("info", eachOption);
         newButton.addClass("choice-button");
@@ -118,27 +122,26 @@ displayNextQuestion();
 $("#display-choices").on("click", ".choice-button", function () {
     var userPick = $(this).attr("info");
     if (userPick === myQuestions[questionIndex].validAnswer) {
-        $("#current-result").text("Correct Answer!")
+        $("#current-result").html("Correct Answer!")
         rightAnswers++;
+        $("#right-count").html("Correct Answers: " + rightAnswers)
+        $("#right-answer").empty();
         clearInterval(timer.timerInterval)
     } else {
         $("#current-result").text("Wrong Answer!")
         $("#right-answer").text("The correct answer was: " + myQuestions[questionIndex].validAnswer + ".");
         wrongAnswers++;
+        $("#wrong-count").html("Wrong Answers: " + wrongAnswers)
         clearInterval(timer.timerInterval)
     }
 
     questionIndex++;
-    timer.setTimer(31);
+    timer.setTimer(21);
     timer.startTimer();
     displayNextQuestion();
-
+    showResults();
 
 })
 
-
-console.log(unanswered);
-console.log(rightAnswers);
-console.log(wrongAnswers);
 
 

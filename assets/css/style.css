@@ -4,18 +4,20 @@ body {
     background-repeat: no-repeat;
     text-align: center;
     margin: 0 auto;
+    font-family: 'Merienda', cursive;
 }
 
 .container {
     width: 40%;
-    height: 370px;
+    height: 450px;
     margin-top: 60px;
     border-radius: 15px;
     background-color: lightgray;
-    opacity: .8;
+    opacity: .75;
     padding: 15px;
 }
 
 .choice-button {
     margin: 2px;
 }
+
