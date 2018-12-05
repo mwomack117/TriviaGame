@@ -3,7 +3,7 @@ A web browser game to test your knowledge about 'Game of Thrones'
 
 [Play the game here](https://mwomack117.github.io/TriviaGame/)
 
-![Trivia Logo]()
+![trivia](https://github.com/mwomack117/TriviaGame/blob/master/assets/images/GOT%20trivia.png)
 
 ### Game Instructions
  * Once the game is started, the player will be shown a series of questions with a 15 second timer running. 
