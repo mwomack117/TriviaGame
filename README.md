@@ -10,3 +10,4 @@ A web browser game to test your knowledge about 'Game of Thrones'
  * Player can pick one answer per question. Once answer is chosen (right or wrong), or if the time expires, the next question will automatically display.
  * Once the game has finished, the players total score will be displayed with the option to restart the game. 
 Feature 2
+Feature2 changes
